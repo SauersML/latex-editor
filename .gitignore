@@ -1,0 +1,8 @@
+*.tex
+*.pdf
+*.aux
+*.log
+*.out
+*.synctex.gz
+vendor/
+__pycache__/
