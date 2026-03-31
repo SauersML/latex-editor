@@ -2,7 +2,7 @@
 """
 Local LaTeX editor server.
 
-- Saves homework.tex to disk on every edit
+- Saves file.tex to disk on every edit
 - Compiles to PDF via tectonic (offline)
 - Auto-commits to git for version history
 - No external API calls after initial tectonic package download
@@ -20,8 +20,8 @@ from pathlib import Path
 
 PORT = 8462
 PROJECT_DIR = Path(__file__).parent.resolve()
-TEX_FILE = PROJECT_DIR / "homework.tex"
-PDF_FILE = PROJECT_DIR / "homework.pdf"
+TEX_FILE = PROJECT_DIR / "file.tex"
+PDF_FILE = PROJECT_DIR / "file.pdf"
 
 
 def git(*args: str) -> str:
@@ -33,7 +33,7 @@ def git(*args: str) -> str:
 
 
 def compile_tex() -> str | None:
-    """Compile homework.tex to PDF. Returns error string or None on success."""
+    """Compile file.tex to PDF. Returns error string or None on success."""
     result = subprocess.run(
         ["tectonic", "-X", "compile", str(TEX_FILE)],
         capture_output=True, text=True, timeout=30,
